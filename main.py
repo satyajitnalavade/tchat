@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-chat = ChatOpenAI()
+chat = ChatOpenAI(verbose=True)
 
 memory = ConversationSummaryMemory(
     llm=chat,
@@ -26,7 +26,8 @@ prompt = ChatPromptTemplate (
 chain = LLMChain(
     llm=chat,
     prompt = prompt,
-    memory=memory
+    memory=memory,
+    verbose=True
 )
 
 while True:
